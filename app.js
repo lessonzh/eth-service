@@ -59,11 +59,11 @@ app.get('/getinstancename', function (req, res) {
 
 })
 
-app.get('/total_accounts', ethClient.total_accounts)
+app.get('/totalaccounts', ethClient.total_accounts)
 
-app.get('/new_account', ethClient.new_account)
+app.get('/newaccount', ethClient.new_account)
 
-app.get('/get_balance', ethClient.get_balance)
+app.get('/getbalance', ethClient.get_balance)
 
 app.get('/transfer', ethClient.transfer)
 
