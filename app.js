@@ -5,12 +5,9 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var config = require('./config/config');
-
 var routes = require('./routes/index');
 var ethClient = require('./routes/eth-client');
-
 var async = require('async');
 
 var app = express();
