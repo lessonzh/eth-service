@@ -9,6 +9,7 @@ var config = require('./config/config');
 var routes = require('./routes/index');
 var ethClient = require('./routes/eth-client');
 var async = require('async');
+var os = require('os');
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.get('/connection', function (req, res) {
 
 app.get('/getinstancename', function (req, res) {
     //res.send({'status': 'success'});
+/*
     fs.readFile('/etc/hostname', 'utf8', function(err, data) {
         if (!err) {
             res.writeHead(200,{'Content-Type':'application/json;charset=utf-8'});
@@ -53,6 +55,17 @@ app.get('/getinstancename', function (req, res) {
             res.end(callback);
         }
     });
+*/
+    {
+        res.writeHead(200,{'Content-Type':'application/json;charset=utf-8'});
+        var data = os.hostname();
+        var host = {
+                "instance-name": data
+        };
+        host = JSON.stringify(host);
+        var callback = req.query.callback+'('+host+');';
+        res.end(callback);
+    }
 
 })
 
